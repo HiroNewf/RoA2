@@ -8,6 +8,6 @@ Should work now... probably
 2. Presses right click
 3. Waits 3 seconds
 4. Presses right click
-5. Waits 500 seconds 
+5. Waits ~3 minutes 
 7. Waits 3 seconds
 8. Loops back to step 2 
