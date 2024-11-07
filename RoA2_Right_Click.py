@@ -21,7 +21,7 @@ def press_right():
     time.sleep(0.01) 
     pyautogui.mouseUp(button='right')
     pyautogui.mouseDown(button='right')
-    time.sleep(0.01) e
+    time.sleep(0.01)
     pyautogui.mouseUp(button='right')
     pyautogui.mouseDown(button='right')
     time.sleep(0.01) 
@@ -46,7 +46,7 @@ def main_loop():
         press_right()
         
         log("Starting 500-second wait")
-        for i in range(1, 17): 
+        for i in range(1, 18): 
             time.sleep(30)
             if stop_event.is_set():
                 log("Loop stopped during 500-second wait")
