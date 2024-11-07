@@ -1,8 +1,9 @@
-import keyboard
+import pyautogui
 import time
 from datetime import datetime
 import tkinter as tk
 from threading import Thread, Event
+import keyboard  # Keep keyboard for hotkey functionality only
 
 # Control flags
 running = False
@@ -16,9 +17,9 @@ def log(message):
 
 def press_enter():
     """Presses and holds the Enter key for 10 ms."""
-    keyboard.press('enter')
-    time.sleep(0.53)
-    keyboard.release('enter')
+    pyautogui.keyDown('enter')
+    time.sleep(0.46)
+    pyautogui.keyUp('enter')
     log("Enter pressed")
 
 def main_loop():
@@ -39,13 +40,12 @@ def main_loop():
         press_enter()
         
         log("Starting 500-second wait")
-        for i in range(1, 17):  # 500 seconds / 30 seconds = 16 intervals
+        for i in range(1, 19): 
             time.sleep(30)
             if stop_event.is_set():
-                log("Loop stopped during 500-second wait")
+                log("Loop stopped during 560-second wait")
                 return  # Exit if stopped during wait
             log(f"Waiting... {i * 30} seconds elapsed")
-
 
         press_enter()
         if stop_event.is_set(): break
@@ -93,6 +93,7 @@ def setup_gui():
     root.protocol("WM_DELETE_WINDOW", root.quit) 
     root.mainloop()
 
+# Use keyboard library's hotkey setup for toggling the script
 keyboard.add_hotkey('ctrl+7', toggle_script)
 
 log("Starting GUI... Press Ctrl+7 to start/stop.")
