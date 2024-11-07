@@ -1,14 +1,11 @@
 # RoA2
-AHHHHHHHH
-
-* Go to the releases for the exe versions
+* Go to the releases for the exe version
 * Control + 7 is the hotkey to start the loop 
 
 1. Waits 5 seconds when started (in case you aren't tabbed in)
-2. Presses the desired button
+2. Presses right click
 3. Waits 3 seconds
-4. Presses the desired button
-5. Waits 560 seconds (Ignore the logs saying 500 seconds, I misstyped and can't be bothered to re-compile)
-6. Presses the desired button
+4. Presses right click
+5. Waits 500 seconds 
 7. Waits 3 seconds
 8. Loops back to step 2 
