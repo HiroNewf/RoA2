@@ -1,7 +1,7 @@
 # RoA2
 AHHHHHHHH
 
-* Go to the release for the exe versions
+* Go to the releases for the exe versions
 * Control + 7 is the hotkey to start the loop 
 
 1. Waits 5 seconds when started (in case you aren't tabbed in)
