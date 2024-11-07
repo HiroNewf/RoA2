@@ -1,4 +1,6 @@
 # RoA2
+Should work now... probably
+
 * Go to the releases for the exe version
 * Control + 7 is the hotkey to start the loop 
 
