@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 import tkinter as tk
 from threading import Thread, Event
-import keyboard  # Keep keyboard for hotkey functionality only
+import keyboard
 
 # Control flags
 running = False
