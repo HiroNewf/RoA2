@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 import tkinter as tk
 from threading import Thread, Event
-import keyboard  
+import keyboard  # Keep keyboard for hotkey functionality only
 
 # Control flags
 running = False
@@ -15,15 +15,21 @@ def log(message):
     """Logs messages with a timestamp."""
     print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {message}")
 
-def press_m():
-    """Presses and holds the M key."""
-    pyautogui.keyDown('m')
-    time.sleep(0.46)
-    pyautogui.keyUp('m')
-    log("M pressed")
+def press_right():
+    """Presses the right mouse button."""
+    pyautogui.mouseDown(button='right')
+    time.sleep(0.01) 
+    pyautogui.mouseUp(button='right')
+    pyautogui.mouseDown(button='right')
+    time.sleep(0.01) e
+    pyautogui.mouseUp(button='right')
+    pyautogui.mouseDown(button='right')
+    time.sleep(0.01) 
+    pyautogui.mouseUp(button='right')
+    log("Right-click pressed")
 
 def main_loop():
-    """Main loop that presses M with specified intervals."""
+    """Main loop that presses right click with specified intervals."""
     global started_once
     if not started_once:
         log("Initial 5-second delay before loop starts")
@@ -31,29 +37,28 @@ def main_loop():
         started_once = True
 
     while not stop_event.is_set():
-        press_m()
+        press_right()
         
-        time.sleep(3)
+        time.sleep(1)
         
         if stop_event.is_set(): break
         
-        press_m()
+        press_right()
         
         log("Starting 500-second wait")
-        for i in range(1, 19): 
+        for i in range(1, 17): 
             time.sleep(30)
             if stop_event.is_set():
-                log("Loop stopped during 560-second wait")
+                log("Loop stopped during 500-second wait")
                 return  # Exit if stopped during wait
             log(f"Waiting... {i * 30} seconds elapsed")
 
-        press_m()
+        press_right()
         if stop_event.is_set(): break
 
-        time.sleep(3)
+        time.sleep(1)
 
 def toggle_script():
-    """Toggles the script on and off and updates the button text in the GUI."""
     global running, main_thread
 
     if running:
@@ -70,15 +75,12 @@ def toggle_script():
         main_thread.start()
 
 def on_start_stop_button():
-    """Handles the GUI Start/Stop button action."""
     toggle_script()
 
 def update_button_label():
-    """Updates the button label based on the running state."""
     start_stop_button.config(text="Stop" if running else "Start")
 
 def setup_gui():
-    """Sets up the basic GUI."""
     global start_stop_button
 
     root = tk.Tk()
