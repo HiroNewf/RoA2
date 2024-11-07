@@ -45,11 +45,11 @@ def main_loop():
         
         press_right()
         
-        log("Starting 500-second wait")
-        for i in range(1, 18): 
+        log("Starting 3 minute wait")
+        for i in range(1, 8): 
             time.sleep(30)
             if stop_event.is_set():
-                log("Loop stopped during 500-second wait")
+                log("Loop stopped during 3 minute wait")
                 return  # Exit if stopped during wait
             log(f"Waiting... {i * 30} seconds elapsed")
 
